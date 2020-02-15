@@ -8,59 +8,61 @@ To merge table over to the database named "projecta", use the command <strong>ph
 Use the command <strong> php artisan db:seed </strong> to run the seeders, this will insert data to the database tables.
 
 ## Admin Endpoints
-To create cities, a POST to <strong> \api\cities </strong> with a given data name as the name of the city, Example : 
+-To create new city, a POST to <strong> \api\cities </strong> with a given data name as the name of the city, Example : 
 
 `{
 	"name": "Casa"
 }`
 
+-To create new delivery time, a POST to <strong> /api/delivery-times </strong> with data that represents the delivery time on a day, Example : 
+`{
+	"delivery_at": "9->12"
+}`
 
-## Laravel Sponsors
+-To attache delivery-times to a city, a POST to <strong> /api/cities/{city_id}/delivery-times </strong> with the delivery_ids given on a list of IDs, Example :
+`{
+	"delivery_times": [1,2]
+}`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- To exclude delivery times from a given city in a given time span, a POST to <strong> exclude/{city_id} </strong> with data given of the starting day and ending day of the holiday for example, with a list of delivery_ids to exclude, the full period will be excluded if no delivery_ids are specified. Example :
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+`{
+	"start_day": "2020-02-15",
+	"end_day": "2020-02-17",
+	"delivery_id": [1,2]
+}`
 
-## Contributing
+## User Endpoints
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- While sending a GET to <strong> cities/{city_id}/delivery_dates_times/{number_of_days} </strong> with the city_id as the city selected, and the number_of_days is the number of days to show starting today, The data returns a JSON file as follow : 
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+for example we send the GET to : <Strong>api/cities/2/delivery_dates_times/4</strong>
+`{
+    "data": [
+        {
+            "day": "2020-02-15",
+            "delivery_at": [
+                "10->13"
+            ]
+        },
+        {
+            "day": "2020-02-16",
+            "delivery_at": [
+                "10->13"
+            ]
+        },
+        {
+            "day": "2020-02-17",
+            "delivery_at": [
+                "10->13"
+            ]
+        },
+        {
+            "day": "2020-02-18",
+            "delivery_at": [
+                "10->13",
+                "15->19"
+            ]
+        }
+    ]
+}`
