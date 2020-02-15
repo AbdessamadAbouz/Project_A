@@ -7,11 +7,13 @@ To merge table over to the database named "projecta", use the command <strong>ph
 
 Use the command <strong> php artisan db:seed </strong> to run the seeders, this will insert data to the database tables.
 
-## Learning Laravel
+## Admin Endpoints
+To create cities, a POST to <strong> \api\cities </strong> with a given data name as the name of the city, Example : 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+`{
+	"name": "Casa"
+}`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
 ## Laravel Sponsors
 
