@@ -5,6 +5,8 @@
 
 To merge table over to the database named "projecta", use the command <strong>php artisan merge</strong>.
 
+![alt text](https://github.com/AbdessamadAbouz/Project_A/blob/master/database.PNG "Database Schema")
+
 Use the command <strong> php artisan db:seed </strong> to run the seeders, this will insert data to the database tables.
 
 ## Admin Endpoints
