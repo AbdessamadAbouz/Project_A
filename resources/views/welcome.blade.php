@@ -83,21 +83,6 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-                <?php 
-                    $exploded_days = [];
-                    array_push($exploded_days,[
-                        'date' => 'today',
-                        'delivery_id' =>1
-                    ]);
-                    array_push($exploded_days,[
-                        'date' => 'tomorrow',
-                        'delivery_id' =>1
-                    ]);
-                    foreach($exploded_days as $e)
-                    {
-                        echo $e["date"];
-                    }
-                ?>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
