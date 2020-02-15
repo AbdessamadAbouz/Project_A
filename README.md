@@ -39,7 +39,9 @@ Use the command <strong> php artisan db:seed </strong> to run the seeders, this 
 
 for example we send the GET to : <Strong>api/cities/2/delivery_dates_times/4</strong>.
 
-`{
+`
+
+{
     "data": [
     
         {
@@ -94,4 +96,6 @@ for example we send the GET to : <Strong>api/cities/2/delivery_dates_times/4</st
         
     ]
     
-}`
+}
+
+`
