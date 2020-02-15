@@ -41,30 +41,57 @@ for example we send the GET to : <Strong>api/cities/2/delivery_dates_times/4</st
 
 `{
     "data": [
+    
         {
+        
             "day": "2020-02-15",
+            
             "delivery_at": [
+            
                 "10->13"
+                
             ]
+            
         },
+        
         {
+        
             "day": "2020-02-16",
+            
             "delivery_at": [
+            
                 "10->13"
+                
             ]
+            
         },
+        
         {
+        
             "day": "2020-02-17",
+            
             "delivery_at": [
+            
                 "10->13"
+                
             ]
+            
         },
+        
         {
+        
             "day": "2020-02-18",
+            
             "delivery_at": [
+            
                 "10->13",
+                
                 "15->19"
+                
             ]
+            
         }
+        
     ]
+    
 }`
