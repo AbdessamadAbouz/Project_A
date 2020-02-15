@@ -20,6 +20,7 @@ Use the command <strong> php artisan db:seed </strong> to run the seeders, this 
 }`
 
 -To attache delivery-times to a city, a POST to <strong> /api/cities/{city_id}/delivery-times </strong> with the delivery_ids given on a list of IDs, Example :
+
 `{
 	"delivery_times": [1,2]
 }`
@@ -36,7 +37,8 @@ Use the command <strong> php artisan db:seed </strong> to run the seeders, this 
 
 - While sending a GET to <strong> cities/{city_id}/delivery_dates_times/{number_of_days} </strong> with the city_id as the city selected, and the number_of_days is the number of days to show starting today, The data returns a JSON file as follow : 
 
-for example we send the GET to : <Strong>api/cities/2/delivery_dates_times/4</strong>
+for example we send the GET to : <Strong>api/cities/2/delivery_dates_times/4</strong>.
+
 `{
     "data": [
         {
