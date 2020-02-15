@@ -41,8 +41,7 @@ for example we send the GET to : <Strong>api/cities/2/delivery_dates_times/4</st
 
 `
 
-{
-    "data": [
+ [
     
         {
         
@@ -96,6 +95,6 @@ for example we send the GET to : <Strong>api/cities/2/delivery_dates_times/4</st
         
     ]
     
-}
+
 
 `
