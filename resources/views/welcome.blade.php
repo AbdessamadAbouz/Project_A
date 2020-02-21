@@ -83,6 +83,7 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+<<<<<<< HEAD
                 <?php 
                     $exploded_days = [];
                     array_push($exploded_days,[
@@ -98,6 +99,8 @@
                         echo $e["date"];
                     }
                 ?>
+=======
+>>>>>>> 07fb5fb9d49c7a300c227eb7ea9111aa75dac277
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
