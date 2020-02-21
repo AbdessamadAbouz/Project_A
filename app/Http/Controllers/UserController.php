@@ -35,28 +35,35 @@ class UserController extends Controller
             $day = $date[0];
             
             $query = exclude::where("city_id",$city_id)->whereDate("start_day",'<=',$day)
-                            ->whereDate("end_day",'>=',$day)->first();
-            if(isset($query))
+                            ->whereDate("end_day",'>=',$day)->get();
+            if(!$query->isEmpty())
             {
-                if(!empty($query->delivery_id))
+                $arr = $deliveries;
+                foreach($query as $q)
                 {
-                    $arr = $deliveries;
-                    $delivery_excluded = explode(",",$query->delivery_id);
-                    $arr = array_diff($arr,$delivery_excluded);
+                    if(!empty($q->delivery_id))
+                    {                        
+                        $delivery_excluded = explode(",",$q->delivery_id);
+                        $arr = array_diff($arr,$delivery_excluded);
+                    }
+                }
+                
+                if(!empty($arr))
+                {
                     foreach($arr as $a)
                     {
                         $delivery_infos = DeliveryTime::where('delivery_id',$a)->first();
                         $names[] = $delivery_infos->delivery_at;
                     }
-                    
                     $final_array[] = [
                         'day' => $day,
                         'delivery_at' => $names
                     ];
-                    foreach ($names as $j => $value) {
-                        unset($names[$j]);
-                    }
+                    
                 }
+                foreach ($names as $j => $value) {
+                                        unset($names[$j]);
+                                    }
             }
             else
             {
