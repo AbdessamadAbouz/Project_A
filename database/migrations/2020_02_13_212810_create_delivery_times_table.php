@@ -14,7 +14,7 @@ class CreateDeliveryTimesTable extends Migration
     public function up()
     {
         Schema::create('delivery_times', function (Blueprint $table) {
-            $table->increments('delivery_id');
+            $table->increments('id');
             $table->string('delivery_at');
             $table->engine = 'InnoDB';
         });

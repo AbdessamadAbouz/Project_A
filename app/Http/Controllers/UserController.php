@@ -20,7 +20,7 @@ class UserController extends Controller
 
         $names = [];
         $final_array = [];
-        $delivery_times = DeliveryTime::join("delivery_city","delivery_times.delivery_id","=","delivery_city.delivery_id")
+        $delivery_times = DeliveryTime::join("delivery_city","delivery_times.id","=","delivery_city.delivery_id")
                                         ->where('delivery_city.city_id',$city_id)->get();
         foreach($delivery_times as $d)
         {
@@ -52,7 +52,7 @@ class UserController extends Controller
                 {
                     foreach($arr as $a)
                     {
-                        $delivery_infos = DeliveryTime::where('delivery_id',$a)->first();
+                        $delivery_infos = DeliveryTime::where('id',$a)->first();
                         $names[] = $delivery_infos->delivery_at;
                     }
                     $final_array[] = [

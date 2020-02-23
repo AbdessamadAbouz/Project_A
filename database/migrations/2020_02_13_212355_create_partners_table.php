@@ -14,10 +14,10 @@ class CreatePartnersTable extends Migration
     public function up()
     {
         Schema::create('partners', function (Blueprint $table) {
-            $table->increments('partner_id');
+            $table->increments('id');
             $table->string('name_partner');
             $table->integer('city_id')->unsigned();
-            $table->foreign('city_id')->references('city_id')->on('cities');
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->unique('city_id');
             $table->engine = 'InnoDB';
         });

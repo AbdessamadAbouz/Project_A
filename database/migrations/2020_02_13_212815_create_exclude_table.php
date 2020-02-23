@@ -19,7 +19,7 @@ class CreateExcludeTable extends Migration
             $table->date('end_day');
             $table->string('delivery_id')->nullable();
             $table->integer('city_id')->unsigned();
-            $table->foreign("city_id")->references("city_id")->on("cities");
+            $table->foreign("city_id")->references("id")->on("cities");
             $table->engine = 'InnoDB';
         });
     }

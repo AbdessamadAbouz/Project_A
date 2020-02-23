@@ -17,8 +17,8 @@ class CreateDeliveryCityTable extends Migration
             $table->increments('delivery_city_id');
             $table->integer('delivery_id')->unsigned();
             $table->integer('city_id')->unsigned();
-            $table->foreign("delivery_id")->references("delivery_id")->on("delivery_times");
-            $table->foreign("city_id")->references("city_id")->on("cities");
+            $table->foreign("delivery_id")->references("id")->on("delivery_times");
+            $table->foreign("city_id")->references("id")->on("cities");
             $table->engine = 'InnoDB';
         });
     }
